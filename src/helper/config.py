@@ -23,7 +23,7 @@ class Settings(BaseSettings):
 
     RESPONSE_LIMIT: int
     TEXT_RESPONSE_DISTANCE: float
-    IMAGE_REPONSE_DISTANCE: float
+    IMAGE_RESPONSE_DISTANCE: float
 
     LLM_MULTIMODEL: str
     MAX_TOKENS: int
