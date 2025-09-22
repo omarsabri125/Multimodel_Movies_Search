@@ -145,7 +145,7 @@ class VectordbWeaviate:
         response = movies.query.near_image(
             # The model provider integration will automatically vectorize the query
             near_image=toBase64(image_path),
-            distance=self.config.IMAGE_REPONSE_DISTANCE,
+            distance=self.config.IMAGE_RESPONSE_DISTANCE,
             limit=self.config.RESPONSE_LIMIT
         )
 
