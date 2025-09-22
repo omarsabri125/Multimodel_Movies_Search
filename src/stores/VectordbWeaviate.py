@@ -3,6 +3,7 @@ from weaviate.classes.init import Auth
 from weaviate.classes.config import Configure, DataType, Multi2VecField, Property
 from weaviate.util import generate_uuid5
 from src.utils.encode_utils import toBase64
+import os
 
 
 class VectordbWeaviate:
@@ -114,6 +115,12 @@ class VectordbWeaviate:
         else:
             print("No errors")
 
+    def get_directory(self):
+        return os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+    def get_full_image_path(self, image_name):
+        return os.path.join(self.get_directory(), "assets", "movie_posters", image_name)
+
     def search_by_text(self, text):
         self.result = []
         movies = self.get_collection()
@@ -129,11 +136,14 @@ class VectordbWeaviate:
             }
 
         for obj in response.objects:
+            image_name = os.path.basename(obj.properties["poster_path"])
+            image_full_path = self.get_full_image_path(image_name)
+
             self.result.append(
                 {
                     "title": obj.properties["title"],
                     "overview": obj.properties["overview"],
-                    "poster_path": toBase64(obj.properties["poster_path"])
+                    "poster_path": toBase64(image_full_path)
                 }
             )
 
@@ -155,11 +165,14 @@ class VectordbWeaviate:
             }
 
         for obj in response.objects:
+            image_name = os.path.basename(obj.properties["poster_path"])
+            image_full_path = self.get_full_image_path(image_name)
+
             self.result.append(
                 {
                     "title": obj.properties["title"],
                     "overview": obj.properties["overview"],
-                    "poster_path": toBase64(obj.properties["poster_path"])
+                    "poster_path": toBase64(image_full_path)
                 }
             )
 
