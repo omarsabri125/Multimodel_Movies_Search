@@ -1,4 +1,4 @@
 myenvweaviate
 .env
 test.py
-.vscode
+.vscode/
