@@ -74,7 +74,6 @@ Multimodel_Movies_Search/
 │ ├── utils/ # Utilities
 │ │ ├── data_utils.py
 │ │ ├── encode_utils.py
-│ │ ├── logger.py
 │ │ └── init.py
 │ │
 │ ├── helper/
@@ -82,6 +81,7 @@ Multimodel_Movies_Search/
 │ │ └── config.py
 │ │
 │ ├── main.py # Entry point (FastAPI app)
+│ ├── logger.py
 │ 
 │── requirements.txt # Project dependencies
 │── README.md # Project documentation
@@ -131,7 +131,7 @@ Movie data and posters were collected automatically using a **custom Data Ingest
 
 5. **Run the application**:
    ```bash
-   uvicorn src.main:app --reload(FastAPI)
+   uvicorn src.main:app --reload
    ```
 
 ---
