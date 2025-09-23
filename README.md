@@ -1,70 +1,101 @@
-# 🎬 Multimodal Marvel Movie Recommendation System (RAG + Weaviate)
+# 🎬 Multimodal Marvel Movie Recommendation System  
+🚀 *AI-powered RAG system for multimodal search with Weaviate*  
 
-An **AI-powered multimodal recommendation system** for Marvel movies using **Weaviate Vector Database**.  
-The system supports **multimodal search** (text, image, audio, video) and retrieves the most relevant movies from the database.  
-
-This project shows how **Retrieval-Augmented Generation (RAG)** can be extended with **multimodal embeddings** to build a smart movie search and recommendation engine.
-
----
-
-## ✨ Features
-
-- 🔍 **Text Search**: Search for Marvel movies using natural language queries.  
-- 🖼️ **Image Search**: Upload a movie poster to discover similar movies.  
-- 🎧 **Audio Search**: Query with audio descriptions (speech-to-text pipeline).  
-- 🎥 **Video Search**: Extract frames from videos and perform similarity search.  
-- ⚡ **Weaviate Integration**: Store and query embeddings efficiently.  
-- 📊 Dataset of Marvel movies with posters and metadata.  
+![Python](https://img.shields.io/badge/Python-3.11+-blue?logo=python)  
+![Weaviate](https://img.shields.io/badge/Weaviate-VectorDB-orange?logo=weaviate)  
+![FastAPI](https://img.shields.io/badge/API-FastAPI-teal?logo=fastapi)  
+![License](https://img.shields.io/badge/License-MIT-green)  
 
 ---
 
-## 🛠️ Tech Stack
+## 📖 Overview  
 
-- **Python 3.11+**
-- [Weaviate](https://weaviate.io/) – vector database  
-- **Cohere / OpenAI / CLIP** – multimodal embeddings  
-- **FastAPI** – backend APIs  
-- **Streamlit / Gradio** – (optional) frontend interface  
-- **Pandas & NumPy** – data preprocessing  
-- **PyTorch & Transformers** – for model inference  
+This project is an **AI-based multimodal recommendation system** for **Marvel movies**, built with **Weaviate Vector Database** and **Retrieval-Augmented Generation (RAG)**.  
+
+It allows searching for movies using **text, image, audio, or video queries** and returns the most relevant results with embeddings stored in **Weaviate**.  
+
+✨ The goal is to show how **multimodal RAG** can be applied to build smart, context-aware recommendation systems.  
 
 ---
+
+## ✨ Key Features  
+
+- 🔍 **Text Search** → Search using natural language queries  
+- 🖼️ **Image Search** → Upload posters or screenshots  
+- 🎧 **Audio Search** → Query using voice (speech-to-text pipeline)  
+- 🎥 **Video Search** → Frame-based video similarity search  
+- ⚡ **Weaviate Integration** → Store and query embeddings efficiently  
+- 📊 Dataset of Marvel movies with posters & metadata  
+
+---
+
+## 🛠️ Tech Stack  
+
+- **Language**: Python 3.11+  
+- **Database**: [Weaviate](https://weaviate.io/) (Vector Database)  
+- **Embeddings**: Cohere / OpenAI / CLIP  
+- **Frameworks**: FastAPI (backend), Streamlit/Gradio (optional UI)  
+- **ML Libraries**: PyTorch, Transformers  
+- **Data**: Marvel movie posters + metadata CSV  
+
+---
+
 
 ## 📂 Project Structure
 
 ```
 Multimodel_Movies_Search/
 │── assets/
-│   ├── movie_posters/              # Posters dataset
-│   ├── test/                       # Test data
-│   └── movies_with_local_posters.csv
+│ ├── movie_posters/ # Marvel movie posters dataset
+│ ├── test/ # Test data & screenshots
+│ └── movies_with_local_posters.csv # Movie metadata with posters
 │
 │── src/
-│   ├── routes/                     # API routes
-│   │   ├── image_search.py         # Image search endpoint
-│   │   ├── text_search.py          # Text search endpoint
-│   │   └── analysis_image.py       # Image analysis
-│   ├── stores/                     # Weaviate DB connectors
-│   │   └── VectordbWeaviate.py
-│   ├── service/                    # Business logic layer
-│   ├── utils/                      # Utilities (logging, encoders, etc.)
-│   │   └── logger.py
-│   └── config.py                   # Project configuration
+│ ├── routes/ # API routes
+│ │ ├── base.py
+│ │ ├── image_search.py # Image search endpoint
+│ │ ├── text_search.py # Text search endpoint
+│ │ └── schemas/ # Request/response schemas
+│ │ ├── ImageRequest.py
+│ │ ├── TextSearch.py
+│ │ └── init.py
+│ │
+│ ├── service/ # Business logic layer
+│ │ ├── llm_multimodel.py
+│ │ ├── MultimodelPipeline.py
+│ │ ├── search_by_image.py
+│ │ ├── search_by_text.py
+│ │ └── init.py
+│ │
+│ ├── stores/ # Vector DB connectors
+│ │ ├── VectordbWeaviate.py
+│ │ └── init.py
+│ │
+│ ├── utils/ # Utilities
+│ │ ├── data_utils.py
+│ │ ├── encode_utils.py
+│ │ ├── logger.py
+│ │ └── init.py
+│ │
+│ ├── config.py # Configuration file
+│ └── init.py
 │
-│── main.py                         # Entry point
-│── requirements.txt                # Dependencies
-│── README.md                       # Documentation
-│── .env.example                    # Example environment variables
-```
+│── main.py # Entry point (FastAPI app)
+│── requirements.txt # Project dependencies
+│── README.md # Project documentation
+│── .env.example # Example env variables
+│── .env # (your local env variables)
+│── test.py # Quick test script
+│── .gitignore # Git ignore file
 
----
+```
 
 ## ⚙️ Installation & Setup
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/multimodal-movies-search.git
-   cd multimodal-movies-search
+   git clone https://github.com/omarsabri125/Multimodel_Movies_Search.git
+   cd Multimodel_Movies_Search
    ```
 
 2. **Create and activate virtual environment**:
@@ -120,10 +151,5 @@ curl -X POST "http://localhost:8000/search/image" \
 
 ---
 
-## 📸 Screenshot
-
-Here’s a development screenshot:  
-
-![Screenshot](./assets/test/screenshot.png)
 
 
