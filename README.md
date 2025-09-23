@@ -77,10 +77,12 @@ Multimodel_Movies_Search/
 │ │ ├── logger.py
 │ │ └── init.py
 │ │
-│ ├── config.py # Configuration file
-│ └── init.py
-│
-│── main.py # Entry point (FastAPI app)
+│ ├── helper/
+│ │ ├── init.py
+│ │ └── config.py
+│ │
+│ ├── main.py # Entry point (FastAPI app)
+│ 
 │── requirements.txt # Project dependencies
 │── README.md # Project documentation
 │── .env.example # Example env variables
@@ -89,6 +91,16 @@ Multimodel_Movies_Search/
 │── .gitignore # Git ignore file
 
 ```
+## 🖼️ Data Collection & Ingestion
+
+Movie data and posters were collected automatically using a **custom Data Ingestion pipeline** powered by the [TMDB API](https://developer.themoviedb.org/).
+
+### Features:
+- Fetches movie metadata (ID, Title, Overview, Poster).
+- Downloads and saves posters locally under `assets/movie_posters/`.
+- Stores metadata in `assets/movies_with_local_posters.csv`.
+- Ensures filenames are safe and consistent across OS.
+- Easily configurable for different **genres** and **keywords** (default: Action + Sci-Fi + Superhero).
 
 ## ⚙️ Installation & Setup
 
@@ -119,7 +131,7 @@ Multimodel_Movies_Search/
 
 5. **Run the application**:
    ```bash
-   python main.py
+   uvicorn src.main:app --reload(FastAPI)
    ```
 
 ---
@@ -128,7 +140,7 @@ Multimodel_Movies_Search/
 
 ### 🔎 Text Search
 ```http
-POST /search/text
+POST /search_by_text
 Content-Type: application/json
 
 {
@@ -138,13 +150,13 @@ Content-Type: application/json
 
 ### 🖼️ Image Search
 ```bash
-curl -X POST "http://localhost:8000/search/image" \
+curl -X POST "http://localhost:8000//search_by_image" \
   -F "file=@assets/test/ironman_poster.jpg"
 ```
 
 ### 🎧 Audio Search
 1. Record a voice query → convert to text via Speech-to-Text.  
-2. Send query to `/search/text`.
+2. Send query to `/search_by_text`.
 
 ### 🎥 Video Search
 - Upload a video clip → system extracts frames → runs similarity search.  
