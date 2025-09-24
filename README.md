@@ -50,6 +50,8 @@ Multimodel_Movies_Search/
 │ ├── test/ # Test data & screenshots
 │ └── movies_with_local_posters.csv # Movie metadata with posters
 │
+│── frontend/
+│
 │── src/
 │ ├── routes/ # API routes
 │ │ ├── base.py
@@ -130,15 +132,15 @@ Movie data and posters were collected automatically using a **custom Data Ingest
    ```
 5. **Install Frontend Dependencies (Node.js)**
 
-   Make sure Node.js is installed: https://nodejs.org
-   Then, go to the frontend folder and install the packages:
+   - Make sure Node.js is installed: https://nodejs.org
+   - Then, go to the frontend folder and install the packages:
 
    ```bash
    cd frontend
    npm install
    npm run dev
    ```
-   
+
 6. **Run the application**:
    ```bash
    uvicorn src.main:app --reload
