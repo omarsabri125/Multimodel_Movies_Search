@@ -4,7 +4,14 @@
 ![Python](https://img.shields.io/badge/Python-3.11+-blue?logo=python)  
 ![Weaviate](https://img.shields.io/badge/Weaviate-VectorDB-orange?logo=weaviate)  
 ![FastAPI](https://img.shields.io/badge/API-FastAPI-teal?logo=fastapi)  
-![License](https://img.shields.io/badge/License-MIT-green)  
+![License](https://img.shields.io/badge/License-MIT-green)
+
+
+<p float="left">
+  <img src="assets/test/لقطة شاشة 2025-09-24 133404.png" width="300" />
+  <img src="assets/test/لقطة شاشة 2025-09-24 134012.png" width="300" />
+</p>
+
 
 ---
 
