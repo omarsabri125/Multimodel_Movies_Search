@@ -8,8 +8,8 @@
 
 
 <p float="left">
-  <img src="assets/test/لقطة شاشة 2025-09-24 133404.png" width="300" />
-  <img src="assets/test/لقطة شاشة 2025-09-24 134012.png" width="300" />
+  <img src="assets/test/لقطة شاشة 2025-09-24 133404.png" width="600" />
+  <img src="assets/test/لقطة شاشة 2025-09-24 134012.png" width="600" />
 </p>
 
 
