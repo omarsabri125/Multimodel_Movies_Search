@@ -29,10 +29,18 @@ class LlmMultimodel:
 
     def get_prompt(self):
 
+        # prompt_parts = [
+        #     "You are an expert in image analysis.",
+        #     "Give a concise summary of the image in 1–2 short sentences, focusing on the main subject, setting, and mood.",
+        #     "Do not add extra observations or lengthy details; write in natural continuous sentences."
+        # ]
+
         prompt_parts = [
             "You are an expert in image analysis.",
-            "Give a concise summary of the image in 1–2 short sentences, focusing on the main subject, setting, and mood.",
-            "Do not add extra observations or lengthy details; write in natural continuous sentences."
+            "Examine the image carefully and provide a detailed, coherent description.",
+            "Cover people, objects, setting, background, colors, lighting, emotions, and interactions.",
+            "Include symbolic or contextual insights when relevant.",
+            "Write in a natural, continuous narrative style — clear, professional, and without bullet points."
         ]
 
         prompt_text = "\n".join(prompt_parts)
