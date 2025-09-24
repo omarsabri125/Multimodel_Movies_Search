@@ -128,8 +128,18 @@ Movie data and posters were collected automatically using a **custom Data Ingest
    OPENAI_API_KEY=your_key_here
    WEAVIATE_URL=https://your-weaviate-instance.weaviate.network
    ```
+5. **Install Frontend Dependencies (Node.js)**
 
-5. **Run the application**:
+   Make sure Node.js is installed: https://nodejs.org
+   Then, go to the frontend folder and install the packages:
+
+   ```bash
+   cd frontend
+   npm install
+   npm run dev
+   ```
+   
+6. **Run the application**:
    ```bash
    uvicorn src.main:app --reload
    ```
