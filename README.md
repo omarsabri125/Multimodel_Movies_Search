@@ -29,7 +29,8 @@ It allows searching for movies using **text, image, audio, or video queries** an
 ## ✨ Key Features  
 
 - 🔍 **Text Search** → Search using natural language queries  
-- 🖼️ **Image Search** → Upload posters or screenshots  
+- 🖼️ **Image Search** → Upload posters or screenshots
+- 🤖 **Image Analysis with GPT-4o** → Understand and extract insights from images using vision-based analysis  
 - 🎧 **Audio Search** → Query using voice (speech-to-text pipeline)  
 - 🎥 **Video Search** → Frame-based video similarity search  
 - ⚡ **Weaviate Integration** → Store and query embeddings efficiently  
@@ -41,7 +42,8 @@ It allows searching for movies using **text, image, audio, or video queries** an
 
 - **Language**: Python 3.11+  
 - **Database**: [Weaviate](https://weaviate.io/) (Vector Database)  
-- **Embeddings**: Cohere / OpenAI / CLIP  
+- **Embeddings**: Cohere / OpenAI / CLIP
+- **Image Analysis**: OpenRouter (GPT-4o for vision-based analysis)  
 - **Frameworks**: FastAPI (backend), Streamlit/Gradio (optional UI)  
 - **ML Libraries**: PyTorch, Transformers  
 - **Data**: Marvel movie posters + metadata CSV  
